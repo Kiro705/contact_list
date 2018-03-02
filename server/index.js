@@ -43,8 +43,8 @@ const startServer = () => {
 //syncs database, `force: true` if you want to clear the database
 const syncDb = () => db.sync({force: false})
 
+//Running the functions to start the server
 syncDb()
 .then(createApp)
 .then(startServer)
-
 
