@@ -4,8 +4,8 @@ const {Contact} = require('../database/models')
 // GET api/contacts/
 // Gets all contacts in database
 router.get('/', (req, res, next) => {
-	User.findAll()
-		.then(users => res.json(users))
+	Contact.findAll()
+		.then(contacts => res.json(contacts))
 		.catch(next)
 })
 
@@ -17,7 +17,7 @@ router.get('/', (req, res, next) => {
 // Deletes contact with matching id
 router.delete('/:id', (req, res, next) => {
 	const {id} = req.params
-	User.destroy({
+	Contact.destroy({
 		where: {id}
 	})
 		.then((success) => {

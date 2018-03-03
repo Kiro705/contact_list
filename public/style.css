@@ -1,0 +1,51 @@
+body {
+	margin: 0;
+	height: 100vh;
+	width: 100vw;
+}
+
+#app {
+	height: 100vh;
+	width: 100vw;
+}
+
+.container {
+	height: 100vh;
+	width: 100vw;
+	padding: 0;
+}
+
+.inlineBlock {
+	display: inline-block;
+}
+
+.navbar {
+	height: 80px;
+	background-color: #FFDA0A;
+}
+
+.navicon{
+	font-size: 3em;
+	color: #DD1C1A;
+	padding-top: 13px;
+  padding-left: 15px;
+	display: inline-block;
+}
+
+.navtext {
+	margin: 0;
+	padding: 20px 20px;
+	color: #086788;
+	font-size: 30px;
+	font-family: 'Montserrat', sans-serif;
+	display: inline;
+}
+
+.tableContainer {
+	padding: 0 15px;
+}
+
+.noContacts {
+	margin: 15px;
+	color: gray;
+}

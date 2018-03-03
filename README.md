@@ -8,6 +8,7 @@
 
 ### To seed 50 random contacts:
 * run `npm run seed`
+##### If run a 2nd time will add 50 additional contacts
 
 ### More info in the INFO.txt file.
 
