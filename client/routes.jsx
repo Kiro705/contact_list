@@ -6,6 +6,7 @@ import history from './history'
 import Navbar from './components/Navbar.jsx'
 import Home from './components/Home.jsx'
 import AddContact from './components/AddContact.jsx'
+import EditContact from './components/EditContact.jsx'
 import {fetchContacts} from './store'
 
 class Routes extends Component {
@@ -19,6 +20,7 @@ class Routes extends Component {
 				<div className='container'>
 					<Navbar/>
 					<Switch>
+						<Route exact path="/editContact/:id" component={EditContact} />
 						<Route path="/home" component={Home} />
 						<Route path="/addContact" component={AddContact} />
 						<Redirect to="/home" />

@@ -10,8 +10,8 @@ const contacts = [null]
 
 const getContacts = contacts => ({type: GET_CONTACTS, contacts})
 const makeContact = contact => ({type: POST_CONTACT, contact})
-const editCategoryAction = category => ({type: EDIT_CATEGORY, category})
-const deleteCategoryAction = category => ({type: DELETE_CATEGORY, category})
+const editContact = contact => ({type: EDIT_CONTACT, contact})
+const deleteCategoryAction = category => ({type: DELETE_CONTACT, category})
 
 export function fetchContacts () {
 	return function thunk (dispatch) {
@@ -34,16 +34,16 @@ export function postContact (contact) {
 	}
 }
 
-// export function editCategory (category) {
-// 	return function thunk (dispatch) {
-// 		return axios.put(`/api/categories/${category.id}`, category)
-// 			.then(res => res.data)
-// 			.then(targetCategory => {
-// 				dispatch(editCategoryAction(targetCategory))
-// 				history.push('/admin')
-// 			})
-// 	}
-// }
+export function putContact (contact) {
+	return function thunk (dispatch) {
+		return axios.put(`/api/contacts/${contact.id}`, contact)
+			.then(res => res.data)
+			.then(targetContact => {
+				dispatch(editContact(targetContact))
+				history.push('/home')
+			})
+	}
+}
 
 // export function deleteCategory (category) {
 
@@ -70,9 +70,9 @@ export default function (state = contacts, action) {
 		return action.contacts
 	case POST_CONTACT:
 		return state.concat(action.contact)
-	// case EDIT_CATEGORY:
-	// 	return state.filter(category => Number(category.id) !== Number(action.category.id)).concat(action.category)
-	// case DELETE_CATEGORY:
+	case EDIT_CONTACT:
+		return state.filter(contact => Number(contact.id) !== Number(action.contact.id)).concat(action.contact)
+	// case DELETE_CONTACT:
 	// 	return state.filter(category => Number(category.id) !== Number(action.category.id))
 	default:
 		return state

@@ -23,7 +23,29 @@ router.post('/', (req, res, next) => {
 	.catch(next)
 })
 
-//Edit contact (still needed)
+// PUT api/contacts/:id
+// Edits a contact already in the database
+router.put('/:id', (req, res, next) => {
+	const id = +req.params.id
+	Contact.update(req.body, {
+		where: {
+			id
+		}
+	})
+	.then(() => {
+		return Contact.findById(id)
+	})
+	.then((foundContact) => {
+		if(foundContact) {
+			res.status(200).json(foundContact)
+		} else {
+			res.sendStatus(404)
+		}
+	})
+	.catch((err) => {
+		res.status(500).json(err)
+	})
+})
 
 // DELETE api/contacts/:id
 // Deletes contact with matching id

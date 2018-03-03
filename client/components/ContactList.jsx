@@ -20,7 +20,7 @@ function ContactList(props){
 						{
 							props.contacts.map(contact => {
 								return (
-									<tr key={contact.id} /*onClick={() => {history.push(`/admin/edit/user/${user.id}`)}}*/>
+									<tr key={contact.id} onClick={() => {history.push(`/editContact/${contact.id}`)}}>
 										<td className='montserratFont'>{contact.name}</td>
 										<td className='montserratFont'>{contact.email}</td>
 										<td className='montserratFont'>{contact.phone}</td>
