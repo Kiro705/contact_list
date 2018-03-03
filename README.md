@@ -4,6 +4,7 @@
 * Change directory in terminal to the one containing the package.json and index.js
 * run `npm install`
 * run `createdb contact_list_js`
+* run `npm run build-client`
 * run `npm start`
 
 ### To seed 50 random contacts:
