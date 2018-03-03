@@ -35,6 +35,10 @@ body {
 	display: inline-block;
 }
 
+.inline {
+	display: inline;
+}
+
 .marginTop15 {
 	margin-top: 15px;
 }
@@ -71,6 +75,12 @@ body {
     border-color: #086788;
     margin-bottom: 10px;
     font-family: 'Montserrat', sans-serif;
+}
+
+.deleteButton {
+	background-color: #DD1C1A;
+  color: #FFDA0A;
+  margin-left: 20px;
 }
 
 .noContacts {

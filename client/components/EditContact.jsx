@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Button} from 'react-bootstrap'
-import {putContact, validSuccessAction, emptyFieldAction, invalidEmailAction, nonUniqueEmailAction} from './../store'
+import {putContact, deleteContact, validSuccessAction, emptyFieldAction, invalidEmailAction, nonUniqueEmailAction} from './../store'
 
 function EditContactForm(props){
 
@@ -17,7 +17,7 @@ function EditContactForm(props){
 	if(theContact !== undefined){
 		return (
 			<div className='tableContainer'>
-				<h2 className='montserratFontBlue'>Edit the Contact</h2>
+				<h2 className='montserratFontBlue'>Edit this Contact</h2>
 				<form id='newCategoryForm' onSubmit={(evt) => {props.handleSubmit(evt, props.contacts, contactId, theContact.email)}}>
 					<div className='formElement'>
 						<span>
@@ -56,6 +56,7 @@ function EditContactForm(props){
 						/>
 					</div>
 					<Button type='submit'>Confirm Edits</Button>
+					<Button className='deleteButton' onClick={(evt) => {props.handleDelete(evt, contactId)}}>Delete Contact</Button>
 					<p className='montserratFontBold'>{props.formValidator.result}</p>
 				</form>
 			</div>
@@ -95,6 +96,10 @@ function mapDispatchToProps (dispatch){
 			} else {
 				dispatch(nonUniqueEmailAction())
 			}
+		},
+		handleDelete: function(evt, id){
+			evt.preventDefault()
+			dispatch(deleteContact(id))
 		}
 	}
 }
