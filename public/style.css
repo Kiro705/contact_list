@@ -9,6 +9,22 @@ body {
 	width: 100vw;
 }
 
+.montserratFont {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.montserratFontBold {
+  font-family: 'Montserrat', sans-serif;
+  color: #DD1C1A;
+	font-weight: bold;
+}
+
+.montserratFontBlue {
+  font-family: 'Montserrat', sans-serif;
+  color: #086788;
+	font-weight: bold;
+}
+
 .container {
 	height: 100vh;
 	width: 100vw;
@@ -17,6 +33,10 @@ body {
 
 .inlineBlock {
 	display: inline-block;
+}
+
+.marginTop15 {
+	margin-top: 15px;
 }
 
 .navbar {
@@ -45,7 +65,19 @@ body {
 	padding: 0 15px;
 }
 
+.btn-default {
+    color: #DD1C1A;
+    background-color: #FFDA0A;
+    border-color: #086788;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
 .noContacts {
 	margin: 15px;
 	color: gray;
+}
+
+.formElement {
+	margin-bottom: 15px;
 }

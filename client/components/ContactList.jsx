@@ -1,17 +1,19 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Table} from 'react-bootstrap'
+import {Table, Button} from 'react-bootstrap'
+import history from './../history'
 
 function ContactList(props){
 	if(props.contacts.length){
 		return (
 			<div className='tableContainer'> 
+				<Button onClick={() => {history.push('/addContact')}}>Add a Contact</Button>
 				<Table striped bordered condensed hover>
 					<thead>
 						<tr>
-							<th>Name</th>
-							<th>Email</th>
-							<th>Phone #</th>
+							<th className='montserratFontBold'>Name</th>
+							<th className='montserratFontBold'>Email</th>
+							<th className='montserratFontBold'>Phone #</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -19,9 +21,9 @@ function ContactList(props){
 							props.contacts.map(contact => {
 								return (
 									<tr key={contact.id} /*onClick={() => {history.push(`/admin/edit/user/${user.id}`)}}*/>
-										<td>{contact.name}</td>
-										<td>{contact.email}</td>
-										<td>{contact.phone}</td>
+										<td className='montserratFont'>{contact.name}</td>
+										<td className='montserratFont'>{contact.email}</td>
+										<td className='montserratFont'>{contact.phone}</td>
 									</tr>
 								)
 							})
@@ -32,7 +34,10 @@ function ContactList(props){
 		)
 	} else {
 		return (
-			<div className='noContacts'>No Contacts</div>
+			<div className='noContacts'>
+				<h4 className='montserratFont'>No Contacts</h4>
+				<Button onClick={() => {history.push('/addContact')}}>Add a Contact</Button>
+			</div>
 		)
 	}
 }

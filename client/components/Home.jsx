@@ -1,25 +1,40 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import ContactList from './ContactList.jsx'
+import {resetValidatorAction} from './../store'
 
-const mapStateToProps = function(state) {
+class Home extends Component {
+	componentDidMount () {
+		this.props.resetForms()
+	}
+
+	render () {
+		//Will be null before database is loaded
+		if(this.props.contacts[0] === null){
+			return (
+					<div className='noContacts'>Loading</div>
+				)
+		} else {
+			return (
+				<ContactList contacts={this.props.contacts} />
+			)
+		}
+	}
+}
+
+const mapState = function(state) {
 	return {
 		contacts: state.contacts,
 	}
 }
 
-function Home(props){
-	//Will be null before database is loaded
-	if(props.contacts[0] === null){
-		return (
-				<div className='noContacts'>Loading</div>
-			)
-	} else {
-		return (
-			<ContactList contacts={props.contacts} />
-		)
+const mapDispatch = (dispatch) => {
+	return {
+		resetForms () {
+			dispatch(resetValidatorAction())
+		}
 	}
 }
 
-const HomeContainer = connect(mapStateToProps)(Home)
+const HomeContainer = connect(mapState, mapDispatch)(Home)
 export default HomeContainer

@@ -5,6 +5,7 @@ import {Route, Switch, Redirect} from 'react-router-dom'
 import history from './history'
 import Navbar from './components/Navbar.jsx'
 import Home from './components/Home.jsx'
+import AddContact from './components/AddContact.jsx'
 import {fetchContacts} from './store'
 
 class Routes extends Component {
@@ -19,6 +20,7 @@ class Routes extends Component {
 					<Navbar/>
 					<Switch>
 						<Route path="/home" component={Home} />
+						<Route path="/addContact" component={AddContact} />
 						<Redirect to="/home" />
 					</Switch>
 				</div>

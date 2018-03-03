@@ -9,7 +9,19 @@ router.get('/', (req, res, next) => {
 		.catch(next)
 })
 
-//Add contact (still needed)
+// POST api/contacts/
+// Adds a new contact to the database
+router.post('/', (req, res, next) => {
+	Contact.create(req.body)
+	.then((contact) => {
+		if (contact) {
+			res.status(201).json(contact)
+		} else {
+			res.sendStatus(404)
+		}
+	})
+	.catch(next)
+})
 
 //Edit contact (still needed)
 
