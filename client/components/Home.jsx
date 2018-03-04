@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import ContactList from './ContactList.jsx'
-import {resetValidatorAction} from './../store'
+import {resetValidatorAction, resetFilter} from './../store'
 
 class Home extends Component {
 	componentDidMount () {
@@ -32,6 +32,7 @@ const mapDispatch = (dispatch) => {
 	return {
 		resetForms () {
 			dispatch(resetValidatorAction())
+			dispatch(resetFilter())
 		}
 	}
 }
